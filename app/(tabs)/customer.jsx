@@ -4,6 +4,7 @@ import Colors from '../../constants/Colors'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useAuth } from '../../contexts/AuthContext';
 import { getCustomers } from '../../service/customer';
+import { router } from 'expo-router';
 
 export default function Customer() {
   const { user, token, logout } = useAuth();
@@ -46,7 +47,7 @@ export default function Customer() {
           }}
         >Customers</Text>
         <TouchableOpacity
-          onPress={() => alert('add customer')}
+          onPress={() => router.push('/pages/customer/add')}
         >
           <AntDesign name="plus" size={20} color="white" />
         </TouchableOpacity>
@@ -76,7 +77,7 @@ export default function Customer() {
           customers ?
             customers.map((data) => {
               return (
-                <View
+                <TouchableOpacity
                   key={data.ID}
                   style={{
                     width: '100%',
@@ -85,11 +86,12 @@ export default function Customer() {
                     borderBottomWidth: 1,
                     borderBottomColor: "#f0f0f0"
                   }}
+                  onPress={() => router.push({pathname: '/pages/customer/detail', params: data})}
                 >
                   <Text>{"Name : " + data.name}</Text>
                   <Text>{"Address : " + data.address}</Text>
                   <Text>{"Phone : " + data.phone}</Text>
-                </View>
+                </TouchableOpacity>
               )
             })
           : <Text>{"Customer not available"}</Text>
