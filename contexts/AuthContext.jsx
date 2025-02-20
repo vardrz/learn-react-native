@@ -61,7 +61,8 @@ export const AuthProvider = ({ children }) => {
     await SecureStore.deleteItemAsync("token");
 
     setUser(null);
-    router.replace('auth/Login');
+    setUser(null);
+    router.replace('auth/login');
   };
 
   return (

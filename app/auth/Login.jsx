@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Login() {
-  const { user, login, isLoading } = useAuth();
+  const { user, login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -67,7 +67,20 @@ export default function Login() {
               fontWeight: "bold",
               color: "white"
             }}
-          >Login</Text>
+          >Masuk</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => router.replace('/auth/register')}
+          style={styles.button}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+              color: "white"
+            }}
+          >Daftar</Text>
         </TouchableOpacity>
         
         <TouchableOpacity
@@ -76,7 +89,7 @@ export default function Login() {
             backgroundColor: "black",
             borderRadius: 10,
             marginHorizontal: 30,
-            marginTop: 20,
+            marginTop: 30,
             paddingVertical: 10,
             justifyContent: "center",
             alignItems: "center",
@@ -91,7 +104,7 @@ export default function Login() {
               color: "white",
               marginLeft: 10
             }}
-          >Back</Text>
+          >Kembali</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -103,7 +116,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 10,
     marginHorizontal: 30,
-    marginTop: 20,
+    marginTop: 10,
     paddingVertical: 10,
     justifyContent: "center",
     alignItems: "center",

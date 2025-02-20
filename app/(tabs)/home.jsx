@@ -46,7 +46,7 @@ export default function Home() {
           alignItems: "center"
         }}
       >
-        <Text style={{marginBottom: 50}}>Login as : {(user.first_name ?? "-") +" "+ (user.last_name ?? "-")}</Text>
+        <Text style={{marginBottom: 50}}>Login as : {user ? (user.first_name +" "+ user.last_name) : "-"}</Text>
         <TouchableOpacity
           style={{
             backgroundColor: "black",
