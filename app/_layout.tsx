@@ -31,6 +31,7 @@ function MainLayout() {
           {/* customers */}
           <Stack.Screen name="pages/customer/add" />
           <Stack.Screen name="pages/customer/detail" />
+          <Stack.Screen name="pages/customer/edit" />
         </>
       ) : (
         <Stack.Screen name="(tabs)/customer" />

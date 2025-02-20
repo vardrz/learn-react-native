@@ -3,8 +3,11 @@ import React from 'react'
 import Colors from '../../constants/Colors'
 import { router } from 'expo-router'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function Home() {
+  const { user, logout } = useAuth();
+
   return (
     <View
       style={{
@@ -43,6 +46,7 @@ export default function Home() {
           alignItems: "center"
         }}
       >
+        <Text style={{marginBottom: 50}}>Login as : {(user.first_name ?? "-") +" "+ (user.last_name ?? "-")}</Text>
         <TouchableOpacity
           style={{
             backgroundColor: "black",
