@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { AuthProvider, useAuth } from "../contexts/AuthContext";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
@@ -13,30 +13,31 @@ export default function RootLayout() {
 function MainLayout() {
   const { user, isLoading } = useAuth();
 
-  if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
-
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      {!user ? (
-        <>
-          <Stack.Screen name="index" />
-          <Stack.Screen name="auth/login" />
-          <Stack.Screen name="auth/register" />
-
-          {/* customers */}
-          <Stack.Screen name="pages/customer/add" />
-          <Stack.Screen name="pages/customer/detail" />
-          <Stack.Screen name="pages/customer/edit" />
-        </>
+    <>
+      <StatusBar backgroundColor="black" barStyle="light-content" />
+      {isLoading ? (
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ActivityIndicator size="large" />
+        </View>
       ) : (
-        <Stack.Screen name="(tabs)/customer" />
+        <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
+          {!user ? (
+            <>
+              <Stack.Screen name="index" />
+              <Stack.Screen name="auth/login" />
+              <Stack.Screen name="auth/register" />
+
+              {/* customers */}
+              <Stack.Screen name="pages/customer/add" />
+              <Stack.Screen name="pages/customer/detail" />
+              <Stack.Screen name="pages/customer/edit" />
+            </>
+          ) : (
+            <Stack.Screen name="(tabs)/customer" />
+          )}
+        </Stack>
       )}
-    </Stack>
+    </>
   );
 }
