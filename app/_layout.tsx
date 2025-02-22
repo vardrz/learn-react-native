@@ -11,7 +11,7 @@ export default function RootLayout() {
 }
 
 function MainLayout() {
-  const { user, isLoading } = useAuth();
+  const { isLoading } = useAuth();
 
   return (
     <>
@@ -22,20 +22,19 @@ function MainLayout() {
         </View>
       ) : (
         <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
-          {!user ? (
-            <>
-              <Stack.Screen name="index" />
-              <Stack.Screen name="auth/login" />
-              <Stack.Screen name="auth/register" />
+          <Stack.Screen name="index" />
+          <Stack.Screen name="auth/login" />
+          <Stack.Screen name="auth/register" />
 
-              {/* customers */}
-              <Stack.Screen name="pages/customer/add" />
-              <Stack.Screen name="pages/customer/detail" />
-              <Stack.Screen name="pages/customer/edit" />
-            </>
-          ) : (
-            <Stack.Screen name="(tabs)/customer" />
-          )}
+          {/* customers */}
+          <Stack.Screen name="pages/customer/add" />
+          <Stack.Screen name="pages/customer/detail" />
+          <Stack.Screen name="pages/customer/edit" />
+
+          {/* product */}
+          <Stack.Screen name="pages/product/add" />
+          <Stack.Screen name="pages/product/detail" />
+          <Stack.Screen name="pages/product/edit" />
         </Stack>
       )}
     </>
