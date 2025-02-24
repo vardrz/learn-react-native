@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { AuthProvider, useAuth } from "../contexts/AuthContext";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
@@ -11,20 +11,17 @@ export default function RootLayout() {
 }
 
 function MainLayout() {
-  const { user, isLoading } = useAuth();
-
-  if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
+  const { isLoading } = useAuth();
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      {!user ? (
-        <>
+    <>
+      <StatusBar backgroundColor="black" barStyle="light-content" />
+      {isLoading ? (
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ActivityIndicator size="large" />
+        </View>
+      ) : (
+        <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="auth/login" />
           <Stack.Screen name="auth/register" />
@@ -33,10 +30,18 @@ function MainLayout() {
           <Stack.Screen name="pages/customer/add" />
           <Stack.Screen name="pages/customer/detail" />
           <Stack.Screen name="pages/customer/edit" />
-        </>
-      ) : (
-        <Stack.Screen name="(tabs)/customer" />
+
+          {/* product */}
+          <Stack.Screen name="pages/product/add" />
+          <Stack.Screen name="pages/product/detail" />
+          <Stack.Screen name="pages/product/edit" />
+
+          {/* product */}
+          <Stack.Screen name="pages/order/add" />
+          <Stack.Screen name="pages/order/detail" />
+          <Stack.Screen name="pages/order/edit" />
+        </Stack>
       )}
-    </Stack>
+    </>
   );
 }

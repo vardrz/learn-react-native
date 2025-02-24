@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Tabs } from 'expo-router'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Octicons from '@expo/vector-icons/Octicons';
 
 export default function TabLayout() {
   return (
@@ -19,10 +20,24 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name='order'
+          options={{
+            title: 'Order',
+            tabBarIcon: ({ color }) => <FontAwesome5 size={20} name="shopping-cart" color={color} />,
+          }}
+        />
+        <Tabs.Screen
           name='customer'
           options={{
             title: 'Customer',
             tabBarIcon: ({ color }) => <FontAwesome5 size={20} name="users" color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name='product'
+          options={{
+            title: 'Product',
+            tabBarIcon: ({ color }) => <Octicons size={20} name="container" color={color} />,
           }}
         />
     </Tabs>

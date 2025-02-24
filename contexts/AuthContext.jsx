@@ -47,6 +47,8 @@ export const AuthProvider = ({ children }) => {
         await SecureStore.setItemAsync("token", data.token);
 
         setUser(data.data);
+        setToken(data.token);
+        
         router.replace('/(tabs)/home');
       } else {
         alert(data.message || "Login failed");
@@ -61,7 +63,7 @@ export const AuthProvider = ({ children }) => {
     await SecureStore.deleteItemAsync("token");
 
     setUser(null);
-    setUser(null);
+    setToken(null);
     router.replace('auth/login');
   };
 

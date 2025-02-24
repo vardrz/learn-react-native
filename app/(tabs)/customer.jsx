@@ -117,6 +117,7 @@ export default function Customer() {
           placeholder='Cari ...'
           style={{
             width: "100%",
+            height: 40,
             backgroundColor: "white",
             borderRadius: 5,
             paddingHorizontal: 15
