@@ -131,6 +131,17 @@ export default function DetailOrder() {
                 </View>
             </View>
 
+            <Button type="info" action={() => {
+                let order = {
+                    id: data.id,
+                    order_number: data.order_number,
+                    customer_id: data.customer_id,
+                    discount: data.discount,
+                    subtotal: data.subtotal,
+                    details: data.details
+                };
+                router.push({pathname: '/pages/order/edit', params: order})
+            }}>Edit</Button>
             <Button type="secondary" action={() => router.back()}>Kembali</Button>
         </ScrollView>
     )

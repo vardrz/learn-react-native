@@ -143,7 +143,9 @@ export default function Order() {
                                 }}
                                 onPress={() => {
                                     let order = {
+                                        id: data.ID,
                                         order_number: data.order_number,
+                                        customer_id: data.customer_id,
                                         customer_name: data.customer.name,
                                         discount: data.discount,
                                         subtotal: data.subtotal,

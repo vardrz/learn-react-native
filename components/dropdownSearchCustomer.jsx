@@ -5,10 +5,10 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { getCustomers } from '../service/customer';
 import { useAuth } from '../contexts/AuthContext';
 
-const DropdownSearchCustomer = ({action}) => {
-    const { token } = useAuth();
+const DropdownSearchCustomer = ({action, initValue = null}) => {
+    const { token } = useAuth();    
 
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState(initValue);
     const [customers, setCustomers] = useState([]);
 
     useEffect(() => {

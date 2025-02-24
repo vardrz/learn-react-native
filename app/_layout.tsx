@@ -39,7 +39,7 @@ function MainLayout() {
           {/* product */}
           <Stack.Screen name="pages/order/add" />
           <Stack.Screen name="pages/order/detail" />
-          {/* <Stack.Screen name="pages/product/edit" /> */}
+          <Stack.Screen name="pages/order/edit" />
         </Stack>
       )}
     </>

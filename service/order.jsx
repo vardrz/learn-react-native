@@ -36,3 +36,13 @@ export const InsertOrder = async (token, body) => {
     
     return response.data;
 };
+
+export const UpdateOrder = async (token, id, body) => {
+    const response = await axios.put(`${API_BASE_URL}/api/order/${id}`, body, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    
+    return response.data;
+};
