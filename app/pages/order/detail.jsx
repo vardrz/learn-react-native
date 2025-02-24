@@ -73,7 +73,7 @@ export default function DetailOrder() {
                                 marginTop: 10
                             }}
                         >
-                            <Text>{"Nama Produk " + product.product_id}</Text>
+                            <Text>{product.product.nama}</Text>
 
                             <View
                                 style={{

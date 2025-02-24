@@ -97,7 +97,7 @@ export default function Order() {
                 }}
                 >
                 <TextInput
-                    placeholder='Cari ...'
+                    placeholder='Nomor Order ...'
                     style={{
                     width: "100%",
                     height: 40,
