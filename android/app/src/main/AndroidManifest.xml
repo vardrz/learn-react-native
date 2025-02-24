@@ -25,7 +25,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="myapp"/>
-        <data android:scheme="com.faridkaka.myapp"/>
+        <data android:scheme="com.vard.myapp"/>
         <data android:scheme="exp+my-app"/>
       </intent-filter>
     </activity>

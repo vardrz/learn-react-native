@@ -1,4 +1,4 @@
-package com.faridkaka.myapp
+package com.vard.myapp
 
 import android.app.Application
 import android.content.res.Configuration

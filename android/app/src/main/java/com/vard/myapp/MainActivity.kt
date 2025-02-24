@@ -1,4 +1,4 @@
-package com.faridkaka.myapp
+package com.vard.myapp
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
