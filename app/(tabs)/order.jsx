@@ -141,9 +141,16 @@ export default function Order() {
                                     justifyContent: "space-between",
                                     alignItems: "center"
                                 }}
-                                onPress={() => router.push(
-                                    {pathname: '/pages/customer/detail', params: data}
-                                )}
+                                onPress={() => {
+                                    let order = {
+                                        order_number: data.order_number,
+                                        customer_name: data.customer.name,
+                                        discount: data.discount,
+                                        subtotal: data.subtotal,
+                                        details: JSON.stringify(data.details)
+                                    };
+                                    router.push({pathname: '/pages/order/detail', params: order})
+                                }}
                             >
                                 <View>
                                     <Text style={{fontWeight: "500"}}>{data.order_number}</Text>
